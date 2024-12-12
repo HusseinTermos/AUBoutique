@@ -58,10 +58,13 @@ class db_accessor:
     def get_product(self, product_id):
         """Return the data of the product with id `product_id`"""
         cur = self.con.cursor()
-        cur.execute("""SELECT product.*, user.username, AVG(rating.rating) AS avg_rating, COUNT(rating.rating) AS rating_count FROM product LEFT JOIN 'transaction' ON product.rowid='transaction'.product_id
+        cur.execute("""SELECT product.*, user.username, AVG(rating.rating) AS avg_rating FROM product LEFT JOIN 'transaction' ON product.rowid='transaction'.product_id
                        JOIN user ON product.owner_id=user.rowid 
                        LEFT JOIN rating ON product.rowid=rating.product_id WHERE product.rowid=? GROUP BY product.rowid""", (product_id,))
-        product_data = cur.fetchone()
+        
+        product_data = tuple(cur.fetchone())
+        cur.execute("SELECT COUNT(*) FROM rating WHERE product_id=?", (product_id,))
+        product_data += tuple(cur.fetchone())
         return product_data
         
 

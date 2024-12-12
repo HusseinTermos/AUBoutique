@@ -4,3 +4,7 @@ __pycache__
 *.jpg
 *.png
 auboutique.db
+example_response.json
+x.py
+l.py
+example_of_my_product_server_response.json
