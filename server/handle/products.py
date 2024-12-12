@@ -13,19 +13,19 @@ def convert_price(price, origin_currency, target_currency): # TODO: make the req
     def helper(origin_currency):
         #TODO: use fewer API calls if possible
         ##################################################################
-        # try:
-        #     response = requests.get("https://v6.exchangerate-api.com/v6/2483d8a27383c07816aa886d/latest/USD").json()
+        try:
+            response = requests.get(f"https://v6.exchangerate-api.com/v6/2483d8a27383c07816aa886d/latest/{origin_currency}").json()
             
-        # except requests.exceptions.JSONDecodeError:
-        #     return None
+        except requests.exceptions.JSONDecodeError:
+            return None
 
         # The below is temporary. Before the demo, we shoudl replace it
         # with the above line to actually send requests to the API
         ##################################################################
-        with open("server/example_response.json") as r:
-            response = json.loads(r.read())
+        # with open("server/example_response.json") as r:
+        #     response = json.loads(r.read())
         ##################################################################
-        rates = response["rates"]
+        rates = response["conversion_rates"]
         cache[origin_currency] = (datetime.now(), rates)
     if not ((origin_currency in cache) and (cache[origin_currency][0] + timedelta(0, 0, 0, 0, 1)) >= datetime.now()):
         helper(origin_currency)

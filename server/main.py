@@ -113,11 +113,13 @@ def handle_client(client_socket, addr):
             client_socket.sendall(response)
             print("response sent")
     print("Closing connection...")
+    u = None
     for user_id in active_users:
         if active_users[user_id][2] == addr:
             u = user_id
             break
-    del active_users[u]
+    if u is not None:
+        del active_users[u]
     client_socket.close()
 
 def get_request(client_socket):

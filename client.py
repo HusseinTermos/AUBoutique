@@ -1554,7 +1554,7 @@ class Add_Product_Page(QWidget):
         name = self.name_text_box.text()
         image_path = self.image_path
         price = self.price_text_box.text()
-        currency = chosen_currency # TODO: self.currency_dropdown.currentText()
+        currency = chosen_currency 
         desc = self.desc_text_box.text()
         quantity = self.quantity_text_box.text()
 
@@ -1569,7 +1569,7 @@ class Add_Product_Page(QWidget):
             missing_fields.append("Description")
         if quantity == '':
             missing_fields.append("Quantity")
-
+        print(currency)
         if missing_fields == []:
             status_code, _, _ = server_add_product(name, image_path, price, currency, desc, quantity)
             if status_code == 200:
