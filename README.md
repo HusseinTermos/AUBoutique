@@ -1,24 +1,22 @@
 
 
-# EECE 351 Project Phase 1
+# EECE 351 Project Phase 2
 
 ## Welcome to AUBoutique!
 
-AUBoutique is a platform that facilitates the buying and selling of different items such as craftwork, art, and gadgets. It supports showcasing items and real-time messaging between buyers and sellers.
+AUBoutique is a platform that facilitates the buying and selling of different items such as craftwork, art, and gadgets. It supports showcasing items, real-time messaging between buyers and sellers, currency conversions and much more.
 	
 ## How to Run the Code
 
 ### Running the Server
 To run the server, run:
 		
-	cd server
-	python main.py PORT
+	python server/main.py PORT
 where `PORT` is the port you wish to run the server on
 		
 ### Running the Client
 To run the client, run:
 		
-	cd client
 	python client.py
 		
 ## Dependencies
