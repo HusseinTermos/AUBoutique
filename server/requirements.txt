@@ -1,0 +1,6 @@
+passlib==1.7.4
+Pillow==11.0.0
+regex==2024.7.24
+bcrypt==4.0.1
+rapidfuzz
+PyQt5
