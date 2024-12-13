@@ -10,7 +10,7 @@ import threading
 from time import sleep
 from PyQt5 import QtCore
 from PyQt5.QtCore import Qt, QPropertyAnimation, QEasingCurve
-from PyQt5.QtGui import QPixmap, QFont, QTextCursor, QIcon, QIntValidator
+from PyQt5.QtGui import QPixmap, QFont, QTextCursor, QIcon, QIntValidator, QIcon
 from PyQt5.QtWidgets import (
     QApplication, QWidget, QVBoxLayout, QHBoxLayout, QStackedLayout, QLabel, QPushButton,
     QScrollArea, QGridLayout, QFrame, QTextEdit, QLineEdit, QFileDialog, QComboBox,
@@ -39,6 +39,8 @@ class MainWindow(QWidget):
     """Main window containing all content"""
     def __init__(self):
         super().__init__()
+        self.setWindowTitle("AUBoutique")
+        self.setWindowIcon(QIcon("logo_icon.jpeg"))
         self.main_app = MainApp(self)
 
     def set_up_ui(self):
